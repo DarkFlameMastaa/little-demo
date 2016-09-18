@@ -12,7 +12,12 @@ class About extends React.Component {
     }
   }
   componentDidMount(){
-
+    searchGit().then((recData) => {
+      this.setState({
+        data:recData.data,
+        wait:false
+      });
+    })
   }
   handleInput(e){
     this.setState({
@@ -20,13 +25,6 @@ class About extends React.Component {
     });
   }
   handleSerch(){
-    // searchGit(this.state.inputValue).then((recData) => {
-    //   this.setState({
-    //     data:recData.data
-    //   });
-    // })
-    searchGit();
-    // console.log(wakaka);
 
   }
   render () {
